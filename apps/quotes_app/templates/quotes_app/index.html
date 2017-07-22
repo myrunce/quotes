@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to Quotes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            div.login{
+                display: inline-block;
+                border: 3px solid black;
+                padding: 10px;
+            }
+            div.register{
+                display: inline-block;
+                border: 3px solid black;
+                vertical-align: top;
+                padding: 10px
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        {% for message in messages %}
+            <div class="messages">
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                {% csrf_token %}
+                Email:  <input type="input" name="email"><br><br>
+                Password:  <input type="password" name="password"><br><br>
+                <input type="submit" value="Login"><br><br>
+            </form>
+        </div>
+        <div class="register">
+            <h1>Register</h1>
+            <form action="/process" method="post">
+                {% csrf_token %}
+                Name:  <input type="input" name="name"><br><br>
+                Alias:  <input type="input" name="alias"><br><br>
+                Email:  <input type="input" name="email"><br><br>
+                Password:  <input type="password" name="password"><br><br>
+                Confirm Password: <input type="password" name="confirm_password"><br><br>
+                Birthday:  <input type="date" name="birthday"><br><br>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </body>
+</html>

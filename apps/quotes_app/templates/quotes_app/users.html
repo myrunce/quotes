@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User</title>
+        <meta charset="UTF-8">
+        <style>
+            span.Red{
+                color: red
+            }
+        </style>
+    </head>
+    <body>
+        <p>Posts by {{ the_user.name }}</p>
+        <p>Count:{{ the_count }}</p>
+        <p><a href="/quotes">Dashboard</a> | <a href="/logout">Logout</a></p>
+        {% for quote in the_quotes %}
+            <p><span class="Red">{{ quote.quoted_by }}:</span> {{ quote.desc }}</p>
+        {% endfor %}
+    </body>
+</html>
